@@ -6,3 +6,8 @@ print(web.title)
 print(web.text)
 
 
+web = ParseWeb("https://www.vecernji.hr/sport/policija-hitno-morala-na-teren-zbog-dojave-o-bombi-ispod-vozila-slavnih-nogometasa-1335436")
+web.parse_vecernji()
+print(web.title)
+print(web.text)
+
