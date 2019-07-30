@@ -38,4 +38,12 @@ class ParseWeb():
         return
 
     def parse_index(self):
+        article_text = ""
+        mydivs = self.soup.find("div", {"class": "text-holder"}).findAll('p')
+        for element in mydivs:
+            article_text += ''.join(element.findAll(text=True))
+        title = self.soup.select('title')
+
+        self.title = title[0].text
+        self.text = article_text
         return
