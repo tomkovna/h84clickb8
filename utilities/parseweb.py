@@ -52,3 +52,36 @@ class ParseWeb():
         self.title = title[0].text
         self.text = article_text
         return
+
+    def parse_story(self):
+        article_text = ""
+        mydivs = self.soup.find("div", {"class": "article__content"}).findAll('p')
+        for element in mydivs:
+            article_text += ''.join(element.findAll(text=True))
+        title = self.soup.select('title')
+
+        self.title = title[0].text
+        self.text = article_text
+        return
+
+    def parse_tportal(self):
+        article_text = ""
+        mydivs = self.soup.find("section", {"class": "articleComponents"}).findAll('p')
+        for element in mydivs:
+            article_text += ''.join(element.findAll(text=True))
+        title = self.soup.select('title')
+
+        self.title = title[0].text
+        self.text = article_text
+        return
+
+    def parse_24sata(self):
+        article_text = ""
+        mydivs = self.soup.find("div", {"class": "article__text"}).findAll('p')
+        for element in mydivs:
+            article_text += ''.join(element.findAll(text=True))
+        title = self.soup.select('title')
+
+        self.title = title[0].text
+        self.text = article_text
+        return
