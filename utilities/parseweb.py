@@ -17,13 +17,18 @@ class ParseWeb():
         self.thepage = urllib.request.urlopen(self.link)
         self.soup = BeautifulSoup(self.thepage,"html.parser")
 
+    #TODO: svaka je metoda ista jedina je razlika sto je u jutarnjem glavni dio texta u sectionu, a
+    # u vecernjem i indexu je u divu, te je naziv classa drugaciji, mozda se moze pametnije napravit :-)
+
     def parse_jutarnji(self):
-        mydivs = self.soup.findAll("section", {"class": "ci_body"})
-        text = mydivs[0].div.text
+        article_text = ""
+        mydivs = self.soup.find("section", {"class": "ci_body"}).findAll('p')
+        for element in mydivs:
+            article_text += ''.join(element.findAll(text=True))
         title = self.soup.select('title')
 
-        self.text = text
         self.title = title[0].text
+        self.text = article_text
         return
 
     def parse_vecernji(self):
