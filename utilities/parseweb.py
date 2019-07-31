@@ -1,13 +1,13 @@
 import urllib.request
 from bs4 import BeautifulSoup
 
-# Class used for getting article content (title and text) from online link
-# Class attributes are:
-#   link : online link, ex. https://www.gloria.hr/fokus/zvjezdane-staze/na-spici-smo-uhvatilii-poznatu-mamu-i-njezine-dvije-kceri-na-njihov-plan-bi-svatko-pristao/9180275/
-#   title: article title, ex. This article is shitty
-#   text: article body, main text
-#   thepage: irllib class casher from link
-#   soup: beautifulsoup class that parses html from thepage
+"""Class used for getting article content (title and text) from online link
+ Class attributes are:
+   link : online link, ex. https://www.gloria.hr/fokus/zvjezdane-staze/na-spici-smo-uhvatilii-poznatu-mamu-i-njezine-dvije-kceri-na-njihov-plan-bi-svatko-pristao/9180275/
+   title: article title, ex. This article is shitty
+   text: article body, main text
+   thepage: irllib class casher from link
+   soup: beautifulsoup class that parses html from thepage"""
 
 class ParseWeb():
     def __init__(self,link):
